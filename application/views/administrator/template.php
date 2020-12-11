@@ -1,10 +1,11 @@
-<?php 
-if ($this->session->level==''){
-    redirect(base_url());
-}else{
+<?php
+if ($this->session->level == '') {
+  redirect(base_url());
+} else {
 ?>
-<!DOCTYPE html>
-<html>
+  <!DOCTYPE html>
+  <html>
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,28 +37,49 @@ if ($this->session->level==''){
     <link rel="stylesheet" href="<?php echo base_url(); ?>asset/admin/plugins/datepicker/datepicker3.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>asset/admin/plugins/daterangepicker/daterangepicker-bs3.css">
-    <style type="text/css"> .files{ position:absolute; z-index:2; top:0; left:0; filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; opacity:0; background-color:transparent; color:transparent; } </style>
+    <style type="text/css">
+      .files {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        filter: alpha(opacity=0);
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        opacity: 0;
+        background-color: transparent;
+        color: transparent;
+      }
+    </style>
     <script type="text/javascript" src="<?php echo base_url(); ?>/asset/admin/plugins/jQuery/jquery-1.12.3.min.js"></script>
     <script src="<?php echo base_url(''); ?>asset/ckeditor/ckeditor.js"></script>
-    <style type="text/css">.checkbox-scroll { border:1px solid #ccc; width:100%; height: 114px; padding-left:8px; overflow-y: scroll; }</style>
-      <link rel="stylesheet" href="https://almsaeedstudio.com/themes/AdminLTE/plugins/pace/pace.min.css">
+    <style type="text/css">
+      .checkbox-scroll {
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 114px;
+        padding-left: 8px;
+        overflow-y: scroll;
+      }
+    </style>
+    <link rel="stylesheet" href="https://almsaeedstudio.com/themes/AdminLTE/plugins/pace/pace.min.css">
     <script type="text/javascript">
-    function nospaces(t){
-        if(t.value.match(/\s/g)){
-            alert('Maaf, Tidak Boleh Menggunakan Spasi,..');
-            t.value=t.value.replace(/\s/g,'');
+      function nospaces(t) {
+        if (t.value.match(/\s/g)) {
+          alert('Maaf, Tidak Boleh Menggunakan Spasi,..');
+          t.value = t.value.replace(/\s/g, '');
         }
-    }
+      }
     </script>
   </head>
+
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
       <header class="main-header">
-          <?php include "main-header.php"; ?>
+        <?php include "main-header.php"; ?>
       </header>
 
       <aside class="main-sidebar">
-          <?php include "menu-admin.php"; ?>
+        <?php include "menu-admin.php"; ?>
       </aside>
 
       <div class="content-wrapper">
@@ -67,12 +89,12 @@ if ($this->session->level==''){
         </section>
 
         <section class="content">
-            <?php echo $contents; ?>
+          <?php echo $contents; ?>
         </section>
         <div style='clear:both'></div>
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">
-          <?php include "footer.php"; ?>
+        <?php include "footer.php"; ?>
       </footer>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -80,7 +102,9 @@ if ($this->session->level==''){
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>$.widget.bridge('uibutton', $.ui.button);</script>
+    <script>
+      $.widget.bridge('uibutton', $.ui.button);
+    </script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -113,9 +137,9 @@ if ($this->session->level==''){
     <script src="<?php echo base_url(); ?>asset/admin/dist/js/app.min.js"></script>
 
     <script>
-    $('#rangepicker').daterangepicker();
-    $('.datepicker').datepicker();
-      $(function () { 
+      $('#rangepicker').daterangepicker();
+      $('.datepicker').datepicker();
+      $(function() {
         $("#example1").DataTable();
         $('#example2').DataTable({
           "paging": true,
@@ -128,32 +152,38 @@ if ($this->session->level==''){
       });
     </script>
 
-  <script>
-    CKEDITOR.replace('editor1' ,{
-      filebrowserImageBrowseUrl : '<?php echo base_url('asset/kcfinder'); ?>'
-    });
-  </script>
-  <script type="text/javascript">
-  // To make Pace works on Ajax calls
-  $(document).ajaxStart(function() { Pace.restart(); });
-    $('.ajax').click(function(){
-        $.ajax({url: '#', success: function(result){
+    <script>
+      CKEDITOR.replace('editor1', {
+        filebrowserImageBrowseUrl: '<?php echo base_url('asset/kcfinder'); ?>'
+      });
+    </script>
+    <script type="text/javascript">
+      // To make Pace works on Ajax calls
+      $(document).ajaxStart(function() {
+        Pace.restart();
+      });
+      $('.ajax').click(function() {
+        $.ajax({
+          url: '#',
+          success: function(result) {
             $('.ajax-content').html('<hr>Ajax Request Completed !');
-        }});
-    });
+          }
+        });
+      });
 
 
-    var url = window.location;
-    // for sidebar menu entirely but not cover treeview
-    $('ul.sidebar-menu a').filter(function() {
-      return this.href == url;
-    }).parent().addClass('active');
+      var url = window.location;
+      // for sidebar menu entirely but not cover treeview
+      $('ul.sidebar-menu a').filter(function() {
+        return this.href == url;
+      }).parent().addClass('active');
 
-    // for treeview
-    $('ul.treeview-menu a').filter(function() {
-      return this.href == url;
-    }).closest('.treeview').addClass('active');
-  </script>
+      // for treeview
+      $('ul.treeview-menu a').filter(function() {
+        return this.href == url;
+      }).closest('.treeview').addClass('active');
+    </script>
   </body>
-</html>
+
+  </html>
 <?php } ?>

@@ -2,6 +2,13 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class Administrator extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('form_validation');
+        $this->load->model("M_surat_n1_n6");
+        $this->load->model('Usermodel');
+    }
     function index()
     {
         if (isset($_POST['submit'])) {
@@ -2747,6 +2754,7 @@ class Administrator extends CI_Controller
     function layanan()
     {
 
-        $this->template->load('administrator/template', 'administrator/mod_layanan/view_layanan');
+        $data['surat_sku'] = $this->M_surat_n1_n6->getSKU()->result_array();
+        $this->template->load('administrator/template', 'administrator/mod_layanan/view_layanan', $data);
     }
 }
