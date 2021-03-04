@@ -9,9 +9,9 @@ class M_surat_n1_n6 extends CI_Model
     {
         return $this->db->get('surat_n1');
     }
-    function getSKU()
+    function get($table)
     {
-        return $this->db->get('sku');
+        return $this->db->get($table);
     }
     function save($data, $table)
     {

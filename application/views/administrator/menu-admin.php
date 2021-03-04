@@ -223,12 +223,23 @@
 
             <li class="treeview">
               <a href="#"><i class="fa fa-key"></i><span>Modul Layanan</span><i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="<?php echo base_url('administrator/layanan') ?>"><i class="fa fa-circle-o"></i>Layanan</a></li>
+              <ul class="treeview">
+                <a href="#"><i class="fa fa-circle-o"></i>Layanan</a>
+                <ul class="treeview-menu">
+                  <li><a href="<?php echo base_url('Surat/SK_usaha') ?>"><i class="fa fa-envelope-o"></i>SK Usaha</a></li>
+                  <li><a href="<?php echo base_url('Surat/SK_kelakuanbaik') ?>"><i class="fa fa-envelope-o"></i>SK Kelakuan Baik</a></li>
+                  <li><a href="<?php echo base_url('Surat/SK_bedanama') ?>"><i class="fa fa-envelope-o"></i>SK Beda Nama</a></li>
+                  <li><a href="<?php echo base_url('Surat/SK_belumkerja') ?>"><i class="fa fa-envelope-o"></i>SK Belum Bekerja</a></li>
+                  <li><a href="<?php echo base_url('Surat/SK_bmr') ?>"><i class="fa fa-envelope-o"></i>SK Belum Memiliki Rumah</a></li>
+                </ul>
               </ul>
             </li>
 
-            <li><a href="<?php echo base_url(); ?>administrator/edit_manajemenuser/<?php echo $this->session->username; ?>"><i class="fa fa-edit"></i> <span>Edit Profile</span></a></li>
-            <li><a href="<?php echo base_url(); ?>administrator/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a></li>
+          </ul>
+          </li>
+          <li>
+
+          <li><a href="<?php echo base_url(); ?>administrator/edit_manajemenuser/<?php echo $this->session->username; ?>"><i class="fa fa-edit"></i> <span>Edit Profile</span></a></li>
+          <li><a href="<?php echo base_url(); ?>administrator/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a></li>
           </ul>
         </section>

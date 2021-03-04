@@ -50,11 +50,114 @@
                                     if ($surat_sku['status_surat'] == 'Pending') : ?>
                                         <th scope="col" id="acc_surat">
                                             <a href="<?= base_url('Tambah_warga/update_sku_terima/' . $surat_sku['id_surat_sku']) ?>" class="btn btn-success m-1" name="status_surat" id="status_surat"><u> Terima</u>
-                                                <a href="<?= base_url('Tambah_warga/update_sku_batal/' . $surat_sku['id_surat_sku']) ?>" class=" btn btn-danger m-1" name="status_surat" id="status_surat"> <u> Tolak</u>
+                                                <a href="<?= base_url('Tambah_warga/update_sku_tolak/' . $surat_sku['id_surat_sku']) ?>" class=" btn btn-danger m-1" name="status_surat" id="status_surat"> <u> Tolak</u>
                                         </th>
                                     <?php elseif ($surat_sku['status_surat'] == 'Diterima') : ?>
                                         <th scope="col" id="acc_surat">
-                                            <a target="_blank" href="<?= base_url('/Cetak_SKU/index/' . $surat_sku['id_surat_sku']); ?>" class="btn btn-success m-1 " name="print" id="print"> Print <i class="fas fa-print"></i> </th>
+                                            <a target="_blank" href="<?= base_url('/Cetak_SK/index/' . $surat_sku['id_surat_sku']); ?>" class="btn btn-success m-1 " name="print" id="print"> Print <i class="fas fa-print"></i>
+                                        </th>
+                                    <?php else : ?>
+                                        <th></th>
+                                    <?php endif; ?>
+                                </tr>
+                            <?php endforeach; ?>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-body">
+                <h1 class="h3 mb-4 text-gray-800">SURAT SKKB</h1>
+                <div class="table-responsive">
+                    <table class="table table-striped table bordered mydatatable" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">No</th>
+                                <th scope="col">ID Surat</th>
+                                <th scope="col">Jenis Pengajuan</th>
+                                <th scope="col">Pengaju</th>
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">Status</th>
+                                <th scope="col" class="text-center">Aksi</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $i = 1;
+                            foreach ($sk_kb as $sk_kb) : ?>
+                                <tr>
+                                    <th scope="col"><?= $i++; ?></th>
+                                    <th scope="col"><?= $sk_kb['id_surat_kelakuanbaik']; ?></th>
+                                    <th scope="col"><?= $sk_kb['jenis_surat']; ?></th>
+                                    <th scope="col"><?= $sk_kb['nama']; ?></th>
+                                    <th scope="col"><?= $sk_kb['tgl_ajukan_surat']; ?></th>
+                                    <th scope="col" value="<?= $sk_kb['status_surat']; ?>"><span class="label label-<?= ($sk_kb['status_surat'] == 'Diterima') ? 'success' : (($sk_kb['status_surat'] == 'Ditolak' || $sk_kb['status_surat'] == 'Dibatalkan') ? 'danger' : 'warning') ?>">
+                                            <?= $sk_kb['status_surat']; ?> <i class="fas fa-exclamation-circle"></i>
+                                        </span>
+                                    </th>
+                                    <?php
+                                    if ($sk_kb['status_surat'] == 'Pending') : ?>
+                                        <th scope="col" id="acc_surat">
+                                            <a href="<?= base_url('Tambah_warga/update_sk_kelakuanbaik_terima/' . $sk_kb['id_surat_kelakuanbaik']) ?>" class="btn btn-success m-1" name="status_surat" id="status_surat"><u> Terima</u>
+                                                <a href="<?= base_url('Tambah_warga/update_sk_kelakuanbaik_tolak/' . $sk_kb['id_surat_kelakuanbaik']) ?>" class=" btn btn-danger m-1" name="status_surat" id="status_surat"> <u> Tolak</u>
+                                        </th>
+                                    <?php elseif ($sk_kb['status_surat'] == 'Diterima') : ?>
+                                        <th scope="col" id="acc_surat">
+                                            <a target="_blank" href="<?= base_url('/Cetak_SK/sk_kelakuanbaik/' . $sk_kb['id_surat_kelakuanbaik']); ?>" class="btn btn-success m-1 " name="print" id="print"> Print <i class="fas fa-print"></i>
+                                        </th>
+                                    <?php else : ?>
+                                        <th></th>
+                                    <?php endif; ?>
+                                </tr>
+                            <?php endforeach; ?>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-body">
+                <h1 class="h3 mb-4 text-gray-800">SURAT SKBN</h1>
+                <div class="table-responsive">
+                    <table class="table table-striped table bordered mydatatable" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">No</th>
+                                <th scope="col">ID Surat</th>
+                                <th scope="col">Jenis Pengajuan</th>
+                                <th scope="col">Pengaju</th>
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">Status</th>
+                                <th scope="col" class="text-center">Aksi</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $i = 1;
+                            foreach ($sk_bedanama as $sk_bedanama) : ?>
+                                <tr>
+                                    <th scope="col"><?= $i++; ?></th>
+                                    <th scope="col"><?= $sk_bedanama['id_surat_bedanama']; ?></th>
+                                    <th scope="col"><?= $sk_bedanama['jenis_surat']; ?></th>
+                                    <th scope="col"><?= $sk_bedanama['nama']; ?></th>
+                                    <th scope="col"><?= $sk_bedanama['tgl_ajukan_surat']; ?></th>
+                                    <th scope="col" value="<?= $sk_bedanama['status_surat']; ?>"><span class="label label-<?= ($sk_bedanama['status_surat'] == 'Diterima') ? 'success' : (($sk_bedanama['status_surat'] == 'Ditolak' || $sk_bedanama['status_surat'] == 'Dibatalkan') ? 'danger' : 'warning') ?>">
+                                            <?= $sk_bedanama['status_surat']; ?> <i class="fas fa-exclamation-circle"></i>
+                                        </span>
+                                    </th>
+                                    <?php
+                                    if ($sk_bedanama['status_surat'] == 'Pending') : ?>
+                                        <th scope="col" id="acc_surat">
+                                            <a href="<?= base_url('Tambah_warga/update_sk_bedanama_terima/' . $sk_bedanama['id_surat_bedanama']) ?>" class="btn btn-success m-1" name="status_surat" id="status_surat"><u> Terima</u>
+                                                <a href="<?= base_url('Tambah_warga/update_sk_bedanama_tolak/' . $sk_bedanama['id_surat_bedanama']) ?>" class=" btn btn-danger m-1" name="status_surat" id="status_surat"> <u> Tolak</u>
+                                        </th>
+                                    <?php elseif ($sk_bedanama['status_surat'] == 'Diterima') : ?>
+                                        <th scope="col" id="acc_surat">
+                                            <a target="_blank" href="<?= base_url('/Cetak_SK/sk_bedanama/' . $sk_bedanama['id_surat_bedanama']); ?>" class="btn btn-success m-1 " name="print" id="print"> Print <i class="fas fa-print"></i>
+                                        </th>
                                     <?php else : ?>
                                         <th></th>
                                     <?php endif; ?>

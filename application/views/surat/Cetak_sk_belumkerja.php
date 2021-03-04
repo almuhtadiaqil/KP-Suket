@@ -44,8 +44,8 @@ function getRomawi($bln)
 $this->load->library('pdf');
 $pdf = new FPDF('P', 'mm', 'A4');
 $pdf->AddPage();
-$pdf->SetTitle('Cetak - Surat Keterangan Usaha');
-$pdf->SetSubject('Surat Keterangan Usaha');
+$pdf->SetTitle('Cetak - Surat Keterangan Belum Bekerja');
+$pdf->SetSubject('Surat Keterangan Belum Bekerja');
 $pdf->SetMargins(15, 18, 15, 18);
 
 //Kop surat
@@ -75,12 +75,12 @@ $pdf->AddFont('Calbold', '', 'calbold.php');
 $pdf->SetFont('Calbold', 'U', 14);
 $pdf->setY(40);
 $pdf->setX(22);
-$pdf->Cell(0, 6, 'SURAT KETERANGAN USAHA', 0, 1, 'C');
+$pdf->Cell(0, 6, 'SURAT KETERANGAN BELUM BEKERJA', 0, 1, 'C');
 $pdf->AddFont('Calreg', '', 'calreg.php');
 $pdf->SetFont('Calreg', '', 12);
 $pdf->setY(45);
 $pdf->setX(22);
-$pdf->Cell(0, 6, 'NOMOR  : 145/2428 - Kel/2020', 0, 1, 'C');
+$pdf->Cell(0, 6, 'NOMOR  : 145/1069 - Kel/2020', 0, 1, 'C');
 $pdf->SetFont('Calreg', '', 12);
 $pdf->setY(55);
 $pdf->setX(30);
@@ -92,7 +92,7 @@ $pdf->Cell('0', 6, 'Kabupaten Garut, menerangkan bahwa :', 0, 1, 'L');
 $pdf->ln(8);
 
 // // Isi Tabel
-foreach ($sku as $surat) {
+foreach ($sk_belumkerja as $surat) {
     $pdf->SetFont('Calreg', '', 12);
     $pdf->setY(73);
     $pdf->setX(30);
@@ -173,45 +173,37 @@ foreach ($sku as $surat) {
     $pdf->setY(121);
     $pdf->setX(80);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(247, 6, 'Kel. ' . $surat->kelurahan . ' Kec. ' . $surat->kecamatan . ' Kab. ' . $surat->kab_kota, 0, 1, 'L');
+    $pdf->Cell(247, 6, 'Kel. ' . $surat->desa . ' Kec. ' . $surat->kecamatan . ' Kab. ' . $surat->kab_kota, 0, 1, 'L');
     $pdf->ln(10);
 
     //penutup
     $pdf->setY(131);
     $pdf->setX(30);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'Adalah   benar   warga   kami   dan  berdasarkan  Keterangan   dari   yang   bersangkutan   dan   dari', 0, 1, 'L');
+    $pdf->Cell(0, 6, 'Adalah   benar   warga   kami   dan  berdasarkan  Keterangan   dari Ketua RT/RW serta pertimbangan ', 0, 1, 'L');
     $pdf->setY(139);
     $pdf->setX(9);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'RT/RW   nya   serta   hasil   kenelitian   kami   bahwa  yang  bersangkutan  benar  mempunyai  usaha  Servis  Jual ', 0, 1, 'L');
+    $pdf->Cell(0, 6, 'kami bahwa yang bersangkutan benar Belum Bekerja', 0, 1, 'L');
     $pdf->setY(147);
-    $pdf->setX(9);
+    $pdf->setX(30);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'Beli Komputer.', 0, 1, 'L');
+    $pdf->Cell(0, 6, 'Surat Keterangan ini akan dipergunakan untuk memenuhi persyaratan', 0, 1, 'L');
+    $pdf->setY(147);
+    $pdf->setX(155);
+    $pdf->SetFont('Calbold', '', 12);
+    $pdf->Cell(0, 6, $surat->keperluan . '.', 0, 1, 'L');
 
     $pdf->setY(155);
     $pdf->setX(30);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'Surat    keterangan    ini     dipergunakan     untuk     Melengkapi    persyaratan  ', 0, 0, 'L');
-    $pdf->setY(155);
-    $pdf->SetX(166);
-    $pdf->SetFont('Calbold', '', 12);
-    $pdf->Cell(0, 6, 'Bantuan Pemulihan', 0, 1, 'L');
+    $pdf->Cell(0, 6, 'Demikian keterangan ini kami berikan kepada yang berkepentingan untuk dipergunakan ', 0, 0, 'L');
     $pdf->setY(163);
-    $pdf->setX(9);
-    $pdf->SetFont('Calbold', '', 12);
-    $pdf->Cell(0, 6, 'Ekonomi.', 0, 1, 'L');
-
-    $pdf->setY(171);
-    $pdf->setX(30);
-    $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'Demikian    keterangan   ini   kami   berikan    kepada   yang   berkepentingan   untuk   dipergunakan ', 0, 1, 'L');
-    $pdf->setY(179);
     $pdf->setX(9);
     $pdf->SetFont('Calreg', '', 12);
     $pdf->Cell(0, 6, 'sebagaimana mestinya.', 0, 1, 'L');
-    $pdf->ln(30);
+
+
 
     //titimangsa
     $pdf->SetFont('Times', '', 12);

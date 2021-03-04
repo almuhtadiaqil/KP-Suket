@@ -19,8 +19,7 @@ class Administrator extends CI_Controller
                 $row = $cek->row_array();
                 $total = $cek->num_rows();
                 if ($total > 0) {
-                    $hash = $row['password'];
-                    if (password_verify($password, $hash)) {
+                    if ($password == $row['password']) {
                         $this->session->set_userdata('upload_image_file_manager', true);
                         $this->session->set_userdata(array(
                             'username' => $row['username'],
@@ -30,22 +29,22 @@ class Administrator extends CI_Controller
 
                         redirect('administrator/home');
                     } else {
-                        $this->load->helper('captcha');
-                        $vals = array(
-                            'img_path'     => './captcha/',
-                            'img_url'     => base_url() . 'captcha/',
-                            'font_path' => base_url() . 'asset/Tahoma.ttf',
-                            'font_size'     => 37,
-                            'img_width'     => '200',
-                            'img_height' => 55,
-                            'border' => 0,
-                            'word_length'   => 5,
-                            'expiration' => 7200
-                        );
+                        // $this->load->helper('captcha');
+                        // $vals = array(
+                        //     'img_path'     => './captcha/',
+                        //     'img_url'     => base_url() . 'captcha/',
+                        //     'font_path' => base_url() . 'asset/Tahoma.ttf',
+                        //     'font_size'     => 37,
+                        //     'img_width'     => '200',
+                        //     'img_height' => 55,
+                        //     'border' => 0,
+                        //     'word_length'   => 5,
+                        //     'expiration' => 7200
+                        // );
 
-                        $cap = create_captcha($vals);
-                        $data['image'] = $cap['image'];
-                        $this->session->set_userdata('mycaptcha', $cap['word']);
+                        // $cap = create_captcha($vals);
+                        // $data['image'] = $cap['image'];
+                        // $this->session->set_userdata('mycaptcha', $cap['word']);
 
                         echo $this->session->set_flashdata('message', '<div class="alert alert-danger"><center>Username atau Password Salah!!</center></div>');
                         $data['title'] = 'Username atau Password salah!';
@@ -63,22 +62,22 @@ class Administrator extends CI_Controller
             if ($this->session->level != '') {
                 redirect($this->uri->segment(1) . '/home');
             } else {
-                $this->load->helper('captcha');
-                $vals = array(
-                    'img_path'     => './captcha/',
-                    'img_url'     => base_url() . 'captcha/',
-                    'font_path' => base_url() . 'asset/Tahoma.ttf',
-                    'font_size'     => 37,
-                    'img_width'     => '200',
-                    'img_height' => 55,
-                    'border' => 0,
-                    'word_length'   => 5,
-                    'expiration' => 7200
-                );
+                // $this->load->helper('captcha');
+                // $vals = array(
+                //     'img_path'     => './captcha/',
+                //     'img_url'     => base_url() . 'captcha/',
+                //     'font_path' => base_url() . 'asset/Tahoma.ttf',
+                //     'font_size'     => 37,
+                //     'img_width'     => '200',
+                //     'img_height' => 55,
+                //     'border' => 0,
+                //     'word_length'   => 5,
+                //     'expiration' => 7200
+                // );
 
-                $cap = create_captcha($vals);
-                $data['image'] = $cap['image'];
-                $this->session->set_userdata('mycaptcha', $cap['word']);
+                // $cap = create_captcha($vals);
+                // $data['image'] = $cap['image'];
+                // $this->session->set_userdata('mycaptcha', $cap['word']);
                 $data['title'] = 'Administrator &rsaquo; Log In';
                 $this->load->view('administrator/view_login', $data);
             }
@@ -2754,7 +2753,11 @@ class Administrator extends CI_Controller
     function layanan()
     {
 
-        $data['surat_sku'] = $this->M_surat_n1_n6->getSKU()->result_array();
+        $data = [
+            'surat_sku' => $this->M_surat_n1_n6->get('sku')->result_array(),
+            'sk_kb' => $this->M_surat_n1_n6->get('sk_kelakuanbaik')->result_array(),
+            'sk_bedanama' => $this->M_surat_n1_n6->get('sk_bedanama')->result_array()
+        ];
         $this->template->load('administrator/template', 'administrator/mod_layanan/view_layanan', $data);
     }
 }

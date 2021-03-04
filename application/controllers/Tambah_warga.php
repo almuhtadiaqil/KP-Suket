@@ -12,126 +12,6 @@ class Tambah_warga extends CI_Controller
         $this->load->helper('date');
     }
 
-    public function add()
-    {
-        $no_kk = $this->input->post('no_kk');
-        $no_nik = $this->input->post('no_nik');
-        $nama = $this->input->post('nama');
-        $password = "Changeme1";
-        $agama = $this->input->post('agama');
-        $tempat_lahir = $this->input->post('tempat_lahir');
-        $tanggal_lahir = $this->input->post('tanggal_lahir');
-        $jenis_kelamin = $this->input->post('jenis_kelamin');
-        $pekerjaan = $this->input->post('pekerjaan');
-        $pendidikan = $this->input->post('pendidikan');
-        $kepala_keluarga = $this->input->post('kepala_keluarga');
-        $kewarganegaraan = $this->input->post('kewarganegaraan');
-        $provinsi = $this->input->post('provinsi');
-        $kab_kota = $this->input->post('kab_kota');
-        $kecamatan = $this->input->post('kecamatan');
-        $desa = $this->input->post('desa');
-        $RT = $this->input->post('RT');
-        $RW = $this->input->post('RW');
-        $kode_pos = $this->input->post('kode_pos');
-        $alamat = $this->input->post('alamat');
-        $status_nikah = $this->input->post('status_nikah');
-        $status_keluarga = $this->input->post('status_keluarga');
-        $nama_ayah = $this->input->post('nama_ayah');
-        $nama_ibu = $this->input->post('nama_ibu');
-
-        $data = [
-            'no_kk' => $no_kk,
-            'no_nik' => $no_nik,
-            'password' => $password,
-            'nama' => $nama,
-            'jenis_kelamin' => $jenis_kelamin,
-            'agama' => $agama,
-            'tempat_lahir' => $tempat_lahir,
-            'tanggal_lahir' => $tanggal_lahir,
-            'pendidikan' => $pendidikan,
-            'pekerjaan' => $pekerjaan,
-            'kewarganegaraan' => $kewarganegaraan,
-            'provinsi' => $provinsi,
-            'kab_kota' => $kab_kota,
-            'kecamatan' => $kecamatan,
-            'desa' => $desa,
-            'RT' => $RT,
-            'RW' => $RW,
-            'kode_pos' => $kode_pos,
-            'alamat' => $alamat,
-            'kepala_keluarga' => $kepala_keluarga,
-            'status_nikah' => $status_nikah,
-            'status_keluarga' => $status_keluarga,
-            'nama_ayah' => $nama_ayah,
-            'nama_ibu' => $nama_ibu
-        ];
-        $this->db->insert('user', $data);
-
-        redirect('admin/profile');
-    }
-
-    public function update()
-    {
-        $id = $this->input->post('id');
-        $no_kk = $this->input->post('no_kk');
-        $no_nik = $this->input->post('no_nik');
-        $nama = $this->input->post('nama');
-        $password = "Changeme1";
-        $agama = $this->input->post('agama');
-        $tempat_lahir = $this->input->post('tempat_lahir');
-        $tanggal_lahir = $this->input->post('tanggal_lahir');
-        $jenis_kelamin = $this->input->post('jenis_kelamin');
-        $pendidikan = $this->input->post('pendidikan');
-        $pekerjaan = $this->input->post('pekerjaan');
-        $kepala_keluarga = $this->input->post('kepala_keluarga');
-        $kewarganegaraan = $this->input->post('kewarganegaraan');
-        $provinsi = $this->input->post('provinsi');
-        $kab_kota = $this->input->post('kab_kota');
-        $kecamatan = $this->input->post('kecamatan');
-        $desa = $this->input->post('desa');
-        $RT = $this->input->post('RT');
-        $RW = $this->input->post('RW');
-        $kode_pos = $this->input->post('kode_pos');
-        $alamat = $this->input->post('alamat');
-        $status_nikah = $this->input->post('status_nikah');
-        $status_keluarga = $this->input->post('status_keluarga');
-        $nama_ayah = $this->input->post('nama_ayah');
-        $nama_ibu = $this->input->post('nama_ibu');
-
-        $where = [
-            'id' => $id
-        ];
-        $data = [
-            'no_kk' => $no_kk,
-            'no_nik' => $no_nik,
-            'password' => $password,
-            'nama' => $nama,
-            'jenis_kelamin' => $jenis_kelamin,
-            'agama' => $agama,
-            'tempat_lahir' => $tempat_lahir,
-            'tanggal_lahir' => $tanggal_lahir,
-            'pendidikan' => $pendidikan,
-            'pekerjaan' => $pekerjaan,
-            'kewarganegaraan' => $kewarganegaraan,
-            'provinsi' => $provinsi,
-            'kab_kota' => $kab_kota,
-            'kecamatan' => $kecamatan,
-            'desa' => $desa,
-            'RT' => $RT,
-            'RW' => $RW,
-            'kode_pos' => $kode_pos,
-            'alamat' => $alamat,
-            'kepala_keluarga' => $kepala_keluarga,
-            'status_nikah' => $status_nikah,
-            'status_keluarga' => $status_keluarga,
-            'nama_ayah' => $nama_ayah,
-            'nama_ibu' => $nama_ibu
-        ];
-        $this->Usermodel->update_data($where, $data, 'user');
-        //$this->Usermodel->update_warga($where, $data, 'user');
-        redirect('admin/profile');
-    }
-
     public function update_sku_terima($id_surat_sku)
     {
         $where = array(
@@ -141,7 +21,7 @@ class Tambah_warga extends CI_Controller
             'status_surat' => "Diterima",
         );
         $this->M_surat_n1_n6->update_data($where, $data, 'sku');
-        redirect('admin/layanan');
+        redirect('Surat/SK_usaha');
     }
     public function update_sku_tolak($id_surat_sku)
     {
@@ -152,17 +32,94 @@ class Tambah_warga extends CI_Controller
             'status_surat' => "Ditolak",
         );
         $this->M_surat_n1_n6->update_data($where, $data, 'sku');
-        redirect('admin/layanan');
+        redirect('Surat/SK_usaha');
     }
-    public function update_sku_batal($id_surat_sku)
+    public function update_sk_kelakuanbaik_terima($id_surat_kelakuanbaik)
     {
         $where = array(
-            'id_surat_sku' => $id_surat_sku
+            'id_surat_kelakuanbaik' => $id_surat_kelakuanbaik
         );
         $data = array(
-            'status_surat' => "Dibatalkan",
+            'status_surat' => "Diterima",
         );
-        $this->M_surat_n1_n6->update_data($where, $data, 'sku');
-        redirect('user');
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_kelakuanbaik');
+        redirect('Surat/SK_kelakuanbaik');
+    }
+    public function update_sk_kelakuanbaik_tolak($id_surat_kelakuanbaik)
+    {
+        $where = array(
+            'id_surat_kelakuanbaik' => $id_surat_kelakuanbaik
+        );
+        $data = array(
+            'status_surat' => "Ditolak",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_kelakuanbaik');
+        redirect('Surat/SK_kelakuanbaik');
+    }
+    public function update_sk_bedanama_terima($id_surat_bedanama)
+    {
+        $where = array(
+            'id_surat_bedanama' => $id_surat_bedanama
+        );
+        $data = array(
+            'status_surat' => "Diterima",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_bedanama');
+        redirect('Surat/SK_bedanama');
+    }
+    public function update_sk_bedanama_tolak($id_surat_bedanama)
+    {
+        $where = array(
+            'id_surat_bedanama' => $id_surat_bedanama
+        );
+        $data = array(
+            'status_surat' => "Ditolak",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_bedanama');
+        redirect('Surat/SK_bedanama');
+    }
+    public function update_sk_belumkerja_terima($id_surat_belumkerja)
+    {
+        $where = array(
+            'id_surat_belumkerja' => $id_surat_belumkerja
+        );
+        $data = array(
+            'status_surat' => "Diterima",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_belumkerja');
+        redirect('Surat/SK_belumkerja');
+    }
+    public function update_sk_belumkerja_tolak($id_surat_belumkerja)
+    {
+        $where = array(
+            'id_surat_belumkerja' => $id_surat_belumkerja
+        );
+        $data = array(
+            'status_surat' => "Ditolak",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_belumkerja');
+        redirect('Surat/SK_belumkerja');
+    }
+    public function update_sk_bmr_terima($id_surat_bmr)
+    {
+        $where = array(
+            'id_surat_bmr' => $id_surat_bmr
+        );
+        $data = array(
+            'status_surat' => "Diterima",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_bmr');
+        redirect('Surat/SK_bmr');
+    }
+    public function update_sk_bmr_tolak($id_surat_bmr)
+    {
+        $where = array(
+            'id_surat_bmr' => $id_surat_bmr
+        );
+        $data = array(
+            'status_surat' => "Ditolak",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_bmr');
+        redirect('Surat/SK_bmr');
     }
 }
