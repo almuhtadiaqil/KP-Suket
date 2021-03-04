@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Des 2020 pada 14.32
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.4.11
+-- Waktu pembuatan: 20 Feb 2021 pada 14.36
+-- Versi server: 10.4.17-MariaDB
+-- Versi PHP: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -877,7 +877,202 @@ CREATE TABLE `sku` (
 
 INSERT INTO `sku` (`id_surat_sku`, `nama`, `no_nik`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `pekerjaan`, `rt`, `rw`, `kelurahan`, `kecamatan`, `kab_kota`, `alamat`, `jenis_surat`, `tgl_ajukan_surat`, `status_surat`) VALUES
 (1, 'Fauzan Herdika Tubagus Putra', 1234, 'Laki-Laki', 'Bandung', '2012-12-28', 'Islam', 'Wirausaha', '005', '002', 'Muarasanding', 'Garut Kota', 'Kabupaten Garut', 'Muarasanding Regency', 'Surat Keterangan Usaha', '2020-12-04', 'Ditolak'),
-(2, 'Fauzan Herdika Tubagus Putra', 1234, 'Laki-Laki', 'Bandung', '2009-12-31', 'Islam', 'Wirausaha', '05', '04', 'Muarasanding', 'Cileunyi', 'Kota Bandung', 'Muarasanding', 'Surat Keterangan Usaha', '2020-12-14', 'Diterima');
+(2, 'Fauzan Herdika Tubagus Putra', 1234, 'Laki-Laki', 'Bandung', '2009-12-31', 'Islam', 'Wirausaha', '05', '04', 'Muarasanding', 'Cileunyi', 'Kota Bandung', 'Muarasanding', 'Surat Keterangan Usaha', '2020-12-14', 'Diterima'),
+(3, 'Muhammad Aqil Al - Muhtadi', 1111, 'Laki - Laki', 'Bandung', '2000-09-11', 'Islam', 'Mahasiswa', '4', '19', 'Muarasanding', 'Garut Kota', 'Garut', 'Muarasanding Regency', 'Surat Keterangan Usaha', '2021-02-17', 'Diterima');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sk_bedanama`
+--
+
+CREATE TABLE `sk_bedanama` (
+  `id_surat_bedanama` int(11) NOT NULL,
+  `no_nik` int(16) NOT NULL,
+  `nama` varchar(125) NOT NULL,
+  `nama_kk` varchar(125) NOT NULL,
+  `tempat_lahir_kk` varchar(125) NOT NULL,
+  `tanggal_lahir_kk` date NOT NULL,
+  `jenis_kelamin_kk` varchar(25) NOT NULL,
+  `tempat_lahir_ktp` varchar(125) NOT NULL,
+  `tanggal_lahir_ktp` date NOT NULL,
+  `jenis_kelamin_ktp` varchar(25) NOT NULL,
+  `keperluan` varchar(25) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `tgl_ajukan_surat` date NOT NULL,
+  `status_surat` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `sk_bedanama`
+--
+
+INSERT INTO `sk_bedanama` (`id_surat_bedanama`, `no_nik`, `nama`, `nama_kk`, `tempat_lahir_kk`, `tanggal_lahir_kk`, `jenis_kelamin_kk`, `tempat_lahir_ktp`, `tanggal_lahir_ktp`, `jenis_kelamin_ktp`, `keperluan`, `jenis_surat`, `tgl_ajukan_surat`, `status_surat`) VALUES
+(1, 1111, 'Muhammad Aqil Al - Muhtadi', 'Muhammad Aqil Al - Muhtadi', 'Bandung', '2000-09-11', 'Laki - Laki', 'Bandung', '2000-09-11', 'Laki - Laki', 'STAN', 'Surat Keterangan Beda Nama', '2021-02-19', 'Diterima');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sk_belumkerja`
+--
+
+CREATE TABLE `sk_belumkerja` (
+  `id_surat_belumkerja` int(11) NOT NULL,
+  `no_nik` int(16) NOT NULL,
+  `nama` varchar(125) NOT NULL,
+  `tempat_lahir` varchar(125) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `jenis_kelamin` varchar(50) NOT NULL,
+  `agama` varchar(25) NOT NULL,
+  `status_nikah` varchar(25) NOT NULL,
+  `pekerjaan` varchar(50) NOT NULL,
+  `kab_kota` varchar(50) NOT NULL,
+  `kecamatan` varchar(50) NOT NULL,
+  `desa` varchar(50) NOT NULL,
+  `rt` int(11) NOT NULL,
+  `rw` int(11) NOT NULL,
+  `alamat` varchar(125) NOT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `tgl_ajukan_surat` date NOT NULL,
+  `status_surat` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `sk_belumkerja`
+--
+
+INSERT INTO `sk_belumkerja` (`id_surat_belumkerja`, `no_nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `status_nikah`, `pekerjaan`, `kab_kota`, `kecamatan`, `desa`, `rt`, `rw`, `alamat`, `keperluan`, `jenis_surat`, `tgl_ajukan_surat`, `status_surat`) VALUES
+(1, 1111, 'Muhammad Aqil Al - Muhtadi', 'Bandung', '2000-09-11', 'Laki - Laki', 'Islam', 'Lajang', 'Mahasiswa', 'Garut', 'Garut Kota', 'Muarasanding', 4, 19, 'Muarasanding Regency', 'STAN', 'Surat Keterangan Belum Bekerja', '2021-02-19', 'Pending');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sk_belummenikah`
+--
+
+CREATE TABLE `sk_belummenikah` (
+  `id_surat_belummenikah` int(11) NOT NULL,
+  `no_nik` int(16) NOT NULL,
+  `nama` varchar(125) NOT NULL,
+  `tempat_lahir` varchar(50) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `jenis_kelamin` varchar(50) NOT NULL,
+  `agama` varchar(50) NOT NULL,
+  `pekerjaan` varchar(50) NOT NULL,
+  `kab_kota` varchar(50) NOT NULL,
+  `kecamatan` varchar(50) NOT NULL,
+  `desa` varchar(50) NOT NULL,
+  `rt` int(50) NOT NULL,
+  `rw` int(50) NOT NULL,
+  `alamat` int(125) NOT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `tgl_ajukan_surat` date NOT NULL,
+  `status_surat` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `sk_belummenikah`
+--
+
+INSERT INTO `sk_belummenikah` (`id_surat_belummenikah`, `no_nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `pekerjaan`, `kab_kota`, `kecamatan`, `desa`, `rt`, `rw`, `alamat`, `keperluan`, `jenis_surat`, `tgl_ajukan_surat`, `status_surat`) VALUES
+(1, 1111, 'Muhammad Aqil Al - Muhtadi', 'Bandung', '2000-09-11', 'Laki - Laki', 'Islam', 'Mahasiswa', 'Garut', 'Garut Kota', 'Muarasanding', 4, 19, 0, 'STAN', 'Surat Keterangan Belum Menikah', '2021-02-19', 'Pending');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sk_bmr`
+--
+
+CREATE TABLE `sk_bmr` (
+  `id_surat_bmr` int(11) NOT NULL,
+  `no_nik` int(16) NOT NULL,
+  `nama` varchar(125) NOT NULL,
+  `tempat_lahir` varchar(50) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `jenis_kelamin` varchar(25) NOT NULL,
+  `agama` varchar(50) NOT NULL,
+  `status_nikah` varchar(50) NOT NULL,
+  `pekerjaan` varchar(50) NOT NULL,
+  `kab_kota` varchar(50) NOT NULL,
+  `kecamatan` varchar(50) NOT NULL,
+  `desa` varchar(50) NOT NULL,
+  `rt` int(50) NOT NULL,
+  `rw` int(50) NOT NULL,
+  `alamat` varchar(125) NOT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `tgl_ajukan_surat` date NOT NULL,
+  `status_surat` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `sk_bmr`
+--
+
+INSERT INTO `sk_bmr` (`id_surat_bmr`, `no_nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `status_nikah`, `pekerjaan`, `kab_kota`, `kecamatan`, `desa`, `rt`, `rw`, `alamat`, `keperluan`, `jenis_surat`, `tgl_ajukan_surat`, `status_surat`) VALUES
+(1, 1111, 'Muhammad Aqil Al - Muhtadi', 'Bandung', '2000-09-11', 'Laki - Laki', 'Islam', 'Lajang', 'Mahasiswa', 'Garut', 'Garut Kota', 'Muarasanding', 4, 19, 'Muarasanding Regency', 'STAN', 'Surat Keterangan Belum Memiliki Rumah', '2021-02-19', 'Pending');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sk_bp`
+--
+
+CREATE TABLE `sk_bp` (
+  `id_surat_bp` int(11) NOT NULL,
+  `no_nik` int(16) NOT NULL,
+  `nama` varchar(125) NOT NULL,
+  `tempat_lahir` varchar(50) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `jenis_kelamin` varchar(25) NOT NULL,
+  `agama` varchar(100) NOT NULL,
+  `pekerjaan` varchar(100) NOT NULL,
+  `kab_kota` varchar(50) NOT NULL,
+  `kecamatan` varchar(50) NOT NULL,
+  `desa` varchar(50) NOT NULL,
+  `rt` int(50) NOT NULL,
+  `rw` int(50) NOT NULL,
+  `alamat` varchar(125) NOT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `tgl_ajukan_surat` date NOT NULL,
+  `status_surat` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sk_kelakuanbaik`
+--
+
+CREATE TABLE `sk_kelakuanbaik` (
+  `id_surat_kelakuanbaik` int(11) NOT NULL,
+  `no_nik` varchar(16) NOT NULL,
+  `nama` varchar(125) NOT NULL,
+  `jenis_kelamin` varchar(25) NOT NULL,
+  `tempat_lahir` varchar(50) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `agama` varchar(25) NOT NULL,
+  `pekerjaan` varchar(100) NOT NULL,
+  `kab_kota` varchar(50) NOT NULL,
+  `kecamatan` varchar(50) NOT NULL,
+  `desa` varchar(50) NOT NULL,
+  `RT` int(10) NOT NULL,
+  `RW` int(10) NOT NULL,
+  `alamat` varchar(150) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `tgl_ajukan_surat` date NOT NULL,
+  `status_surat` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `sk_kelakuanbaik`
+--
+
+INSERT INTO `sk_kelakuanbaik` (`id_surat_kelakuanbaik`, `no_nik`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `pekerjaan`, `kab_kota`, `kecamatan`, `desa`, `RT`, `RW`, `alamat`, `jenis_surat`, `tgl_ajukan_surat`, `status_surat`) VALUES
+(2, '1111', 'Muhammad Aqil Al - Muhtadi', 'Laki - Laki', 'Bandung', '2000-09-11', 'Islam', 'Mahasiswa', 'Garut', 'Garut Kota', 'Muarasanding', 4, 19, 'Muarasanding Regency', 'Surat Keterangan Kelakuan Baik', '2021-02-17', 'Diterima');
 
 -- --------------------------------------------------------
 
@@ -2338,7 +2533,10 @@ INSERT INTO `statistik` (`ip`, `tanggal`, `hits`, `online`) VALUES
 ('::1', '2020-11-29', 1, '1606620987'),
 ('::1', '2020-11-30', 24, '1606700312'),
 ('::1', '2020-12-11', 1, '1607646938'),
-('::1', '2020-12-14', 5, '1607929040');
+('::1', '2020-12-14', 5, '1607929040'),
+('::1', '2021-02-17', 5, '1613566582'),
+('::1', '2021-02-18', 1, '1613586043'),
+('::1', '2021-02-19', 1, '1613731698');
 
 -- --------------------------------------------------------
 
@@ -2498,8 +2696,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `no_kk`, `no_nik`, `nama`, `password`, `agama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `pendidikan`, `pekerjaan`, `kewarganegaraan`, `kepala_keluarga`, `provinsi`, `kab_kota`, `kecamatan`, `desa`, `RT`, `RW`, `kode_pos`, `alamat`, `is_active`, `image`) VALUES
-(1, 3204050000000000, 3204050000000000, 'Fauzan', 'Changeme1', 'Islam', '', '0000-00-00', 'Laki-Laki', '', '', '', '0', 'Jawa Barat', 'Kota Bandung', 'Cileunyi', 'Cinunuk', '', '', 0, '', 2, 'default.jpg'),
-(2, 1234, 1234, 'Fauzan Herdika Tubagus Putra', 'Gilardino29', 'Islam', '', '0000-00-00', 'Laki-Laki', '', '', '', '0', 'Jawa Barat', 'Kota Bandung', 'Cileunyi', 'Cinunuk', '', '', 0, '', 1, 'default.jpg');
+(1196, 1111, 1111, 'Muhammad Aqil Al - Muhtadi', '$2y$10$ByAv3CdbvEL0Co.mYWOA0uyoX7ewEvbGE.hbM2f/a928nu8zsuUzO', 'Islam', 'Bandung', '2000-09-11', 'Laki - Laki', '', 'Mahasiswa', '', '', '', 'Garut', 'Garut Kota', 'Muarasanding', '4', '19', 0, 'Muarasanding Regency', 1, 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -2524,7 +2721,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `password`, `nama_lengkap`, `email`, `no_telp`, `foto`, `level`, `blokir`, `id_session`) VALUES
-('admin', '$2y$10$ddFXO8YEG8P1U8tEDrDZLOU0hewB8a.5oWBFjDMZn4YHLNkGaQGtW', 'Admin Lokomedia', 'admin@lokomedia.web.id', '085716129917', 'lokomedia.png', 'admin', 'N', 'q173s8hs1jl04st35169ccl8o7');
+('admin', 'admin', 'Admin Lokomedia', 'admin@lokomedia.web.id', '085716129917', 'lokomedia.png', 'admin', 'N', 'q173s8hs1jl04st35169ccl8o7');
 
 -- --------------------------------------------------------
 
@@ -2767,6 +2964,42 @@ ALTER TABLE `sku`
   ADD PRIMARY KEY (`id_surat_sku`);
 
 --
+-- Indeks untuk tabel `sk_bedanama`
+--
+ALTER TABLE `sk_bedanama`
+  ADD PRIMARY KEY (`id_surat_bedanama`);
+
+--
+-- Indeks untuk tabel `sk_belumkerja`
+--
+ALTER TABLE `sk_belumkerja`
+  ADD PRIMARY KEY (`id_surat_belumkerja`);
+
+--
+-- Indeks untuk tabel `sk_belummenikah`
+--
+ALTER TABLE `sk_belummenikah`
+  ADD PRIMARY KEY (`id_surat_belummenikah`);
+
+--
+-- Indeks untuk tabel `sk_bmr`
+--
+ALTER TABLE `sk_bmr`
+  ADD PRIMARY KEY (`id_surat_bmr`);
+
+--
+-- Indeks untuk tabel `sk_bp`
+--
+ALTER TABLE `sk_bp`
+  ADD PRIMARY KEY (`id_surat_bp`);
+
+--
+-- Indeks untuk tabel `sk_kelakuanbaik`
+--
+ALTER TABLE `sk_kelakuanbaik`
+  ADD PRIMARY KEY (`id_surat_kelakuanbaik`);
+
+--
 -- Indeks untuk tabel `tag`
 --
 ALTER TABLE `tag`
@@ -2992,7 +3225,43 @@ ALTER TABLE `sekilasinfo`
 -- AUTO_INCREMENT untuk tabel `sku`
 --
 ALTER TABLE `sku`
-  MODIFY `id_surat_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_surat_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `sk_bedanama`
+--
+ALTER TABLE `sk_bedanama`
+  MODIFY `id_surat_bedanama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `sk_belumkerja`
+--
+ALTER TABLE `sk_belumkerja`
+  MODIFY `id_surat_belumkerja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `sk_belummenikah`
+--
+ALTER TABLE `sk_belummenikah`
+  MODIFY `id_surat_belummenikah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `sk_bmr`
+--
+ALTER TABLE `sk_bmr`
+  MODIFY `id_surat_bmr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `sk_bp`
+--
+ALTER TABLE `sk_bp`
+  MODIFY `id_surat_bp` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `sk_kelakuanbaik`
+--
+ALTER TABLE `sk_kelakuanbaik`
+  MODIFY `id_surat_kelakuanbaik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tag`
@@ -3022,7 +3291,7 @@ ALTER TABLE `templates`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1196;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1197;
 
 --
 -- AUTO_INCREMENT untuk tabel `users_modul`
