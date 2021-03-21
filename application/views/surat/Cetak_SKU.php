@@ -40,7 +40,7 @@ function getRomawi($bln)
             break;
     }
 }
-
+$this->load->helper('date');
 $this->load->library('pdf');
 $pdf = new FPDF('P', 'mm', 'A4');
 $pdf->AddPage();
@@ -218,7 +218,7 @@ foreach ($sku as $surat) {
     $pdf->ln();
     $pdf->setY(200);
     $pdf->setX(125);
-    $pdf->Cell(20, 5, 'Garut, ' . tgl_indo($surat->tgl_ajukan_surat), 0, 0);
+    $pdf->Cell(20, 5, 'Garut, ' . tgl_indo(mdate('%Y-%m-%d', now())), 0, 0);
 
     $pdf->setY(205);
     $pdf->setX(125);

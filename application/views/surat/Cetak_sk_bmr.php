@@ -40,7 +40,7 @@ function getRomawi($bln)
             break;
     }
 }
-
+$this->load->helper('date');
 $this->load->library('pdf');
 $pdf = new FPDF('P', 'mm', 'A4');
 $pdf->AddPage();
@@ -92,7 +92,7 @@ $pdf->Cell('0', 6, 'Kabupaten Garut, menerangkan bahwa :', 0, 1, 'L');
 $pdf->ln(8);
 
 // // Isi Tabel
-foreach ($sk_belumkerja as $surat) {
+foreach ($sk_bmr as $surat) {
     $pdf->SetFont('Calreg', '', 12);
     $pdf->setY(73);
     $pdf->setX(30);
@@ -148,7 +148,7 @@ foreach ($sk_belumkerja as $surat) {
     $pdf->setY(105);
     $pdf->setX(30);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell('0', 6, 'Pekerjaan', 0, 0, 'L');
+    $pdf->Cell('0', 6, 'Status Perkawinan', 0, 0, 'L');
     $pdf->setY(105);
     $pdf->setX(75);
     $pdf->SetFont('Calreg', '', 12);
@@ -156,12 +156,12 @@ foreach ($sk_belumkerja as $surat) {
     $pdf->setY(105);
     $pdf->setX(80);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, $surat->pekerjaan, 0, 1, 'L');
+    $pdf->Cell(0, 6, $surat->status_nikah, 0, 1, 'L');
 
     $pdf->setY(113);
     $pdf->setX(30);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'Alamat', 0, 0, 'L');
+    $pdf->Cell(0, 6, 'Pekerjaan', 0, 0, 'L');
     $pdf->setY(113);
     $pdf->setX(75);
     $pdf->SetFont('Calreg', '', 12);
@@ -169,36 +169,58 @@ foreach ($sk_belumkerja as $surat) {
     $pdf->setY(113);
     $pdf->setX(80);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, $surat->alamat . ' RT ' . $surat->rt . ' RW ' . $surat->rw, 0, 1, 'L');
+    $pdf->Cell(0, 6, $surat->pekerjaan, 0, 1, 'L');
+
     $pdf->setY(121);
+    $pdf->setX(30);
+    $pdf->SetFont('Calreg', '', 12);
+    $pdf->Cell(0, 6, 'Alamat', 0, 1, 'L');
+    $pdf->setY(121);
+    $pdf->setX(75);
+    $pdf->SetFont('Calreg', '', 12);
+    $pdf->Cell(0, 6, ':', 0, 0, 'L');
+    $pdf->setY(121);
+    $pdf->setX(80);
+    $pdf->SetFont('Calreg', '', 12);
+    $pdf->Cell(0, 6, $surat->alamat . ' RT ' . $surat->rt . ' RW ' . $surat->rw, 0, 1, 'L');
+    $pdf->setY(129);
     $pdf->setX(80);
     $pdf->SetFont('Calreg', '', 12);
     $pdf->Cell(247, 6, 'Kel. ' . $surat->desa . ' Kec. ' . $surat->kecamatan . ' Kab. ' . $surat->kab_kota, 0, 1, 'L');
     $pdf->ln(10);
 
     //penutup
-    $pdf->setY(131);
+    $pdf->setY(139);
     $pdf->setX(30);
     $pdf->SetFont('Calreg', '', 12);
     $pdf->Cell(0, 6, 'Adalah   benar   warga   kami   dan  berdasarkan  Keterangan   dari Ketua RT/RW serta pertimbangan ', 0, 1, 'L');
-    $pdf->setY(139);
+    $pdf->setY(147);
     $pdf->setX(9);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'kami bahwa yang bersangkutan benar Belum Bekerja', 0, 1, 'L');
-    $pdf->setY(147);
+    $pdf->Cell(0, 6, 'kami bahwa yang bersangkutan benar sampai saat ini belum memiliki rumah    sendiri dan   masih  tinggal   sama', 0, 1, 'L');
+    $pdf->setY(155);
+    $pdf->setX(9);
+    $pdf->SetFont('Calreg', '', 12);
+    $pdf->Cell(0, 6, 'Orang Tua', 0, 1, 'L');
+
+    $pdf->setY(163);
     $pdf->setX(30);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'Surat Keterangan ini akan dipergunakan untuk memenuhi persyaratan', 0, 1, 'L');
-    $pdf->setY(147);
-    $pdf->setX(155);
+    $pdf->Cell(0, 6, 'Surat     Keterangan      ini   akan  dipergunakan   untuk    memenuhi    persyaratan', 0, 1, 'L');
+    $pdf->setY(163);
+    $pdf->setX(175);
     $pdf->SetFont('Calbold', '', 12);
-    $pdf->Cell(0, 6, $surat->keperluan . '.', 0, 1, 'L');
+    $pdf->Cell(0, 6, $surat->keperluan, 0, 1, 'L');
+    $pdf->setY(171);
+    $pdf->setX(9);
+    $pdf->SetFont('Calreg', '', 12);
+    $pdf->Cell(0, 6, 'di Permata Karisma Banyuresmi  ', 0, 0, 'L');
 
-    $pdf->setY(155);
+    $pdf->setY(179);
     $pdf->setX(30);
     $pdf->SetFont('Calreg', '', 12);
     $pdf->Cell(0, 6, 'Demikian keterangan ini kami berikan kepada yang berkepentingan untuk dipergunakan ', 0, 0, 'L');
-    $pdf->setY(163);
+    $pdf->setY(187);
     $pdf->setX(9);
     $pdf->SetFont('Calreg', '', 12);
     $pdf->Cell(0, 6, 'sebagaimana mestinya.', 0, 1, 'L');
@@ -210,7 +232,7 @@ foreach ($sk_belumkerja as $surat) {
     $pdf->ln();
     $pdf->setY(200);
     $pdf->setX(125);
-    $pdf->Cell(20, 5, 'Garut, ' . tgl_indo($surat->tgl_ajukan_surat), 0, 0);
+    $pdf->Cell(20, 5, 'Garut, ' . tgl_indo(mdate('%Y-%m-%d', now())), 0, 0);
 
     $pdf->setY(205);
     $pdf->setX(125);

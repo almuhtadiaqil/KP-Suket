@@ -2750,14 +2750,14 @@ class Administrator extends CI_Controller
         }
     }
 
-    function layanan()
+    function aktivasi_akun()
     {
 
         $data = [
-            'surat_sku' => $this->M_surat_n1_n6->get('sku')->result_array(),
-            'sk_kb' => $this->M_surat_n1_n6->get('sk_kelakuanbaik')->result_array(),
-            'sk_bedanama' => $this->M_surat_n1_n6->get('sk_bedanama')->result_array()
+            'user_pending' => $this->db->get_where('user', ['is_active' => 2])->result_array(),
+            'user_active' => $this->db->get_where('user', ['is_active' => 1])->result_array(),
+            'user_tolak' => $this->db->get_where('user', ['is_active' => 0])->result_array(),
         ];
-        $this->template->load('administrator/template', 'administrator/mod_layanan/view_layanan', $data);
+        $this->template->load('administrator/template', 'administrator/mod_users/aktivasi', $data);
     }
 }

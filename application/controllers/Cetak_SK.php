@@ -42,4 +42,40 @@ class Cetak_SK extends CI_Controller
         $data['sk_bmr'] = $this->M_surat_n1_n6->get_data($where, 'sk_bmr')->result();
         $this->load->view('surat/cetak_sk_bmr', $data);
     }
+    function sk_belummenikah($id_surat_belummenikah)
+    {
+        $where = array('id_surat_belummenikah' => $id_surat_belummenikah);
+        $data['sk_belummenikah'] = $this->M_surat_n1_n6->get_data($where, 'sk_belummenikah')->result();
+        $this->load->view('surat/cetak_sk_belummenikah', $data);
+    }
+    function sk_bp($id_surat_bp)
+    {
+        $where = array('id_surat_bp' => $id_surat_bp);
+        $data['sk_bp'] = $this->M_surat_n1_n6->get_data($where, 'sk_bp')->result();
+        $this->load->view('surat/cetak_sk_bp', $data);
+    }
+    function sk_kehilangan($id_surat_kehilangan)
+    {
+        $where = array('id_surat_kehilangan' => $id_surat_kehilangan);
+        $data['sk_kehilangan'] = $this->M_surat_n1_n6->get_data($where, 'sk_kehilangan')->result();
+        $this->load->view('surat/cetak_sk_kehilangan', $data);
+    }
+    function sk_penghasilan($id_surat_penghasilan)
+    {
+        $where = array('id_surat_penghasilan' => $id_surat_penghasilan);
+        $data['sk_penghasilan'] = $this->M_surat_n1_n6->get_data($where, 'sk_penghasilan')->result();
+        $this->load->view('surat/cetak_sk_penghasilan', $data);
+    }
+    function sk_ptt($id_surat_ptt)
+    {
+        $where = array('id_surat_ptt' => $id_surat_ptt);
+        $data['sk_ptt'] = $this->M_surat_n1_n6->get_data($where, 'sk_ptt')->result();
+        $this->load->view('surat/cetak_sk_ptt', $data);
+    }
+    function sk_rumahrubuh($id_surat_rumahrubuh)
+    {
+        $where = array('id_surat_rumahrubuh' => $id_surat_rumahrubuh);
+        $data['sk_rumahrubuh'] = $this->M_surat_n1_n6->get_data($where, 'sk_rumahrubuh')->result();
+        $this->load->view('surat/cetak_sk_rumahrubuh', $data);
+    }
 }

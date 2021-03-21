@@ -18,9 +18,17 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/asset/admin/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/asset/admin/plugins/iCheck/square/blue.css">
+  <style>
+    .bg-login {
+      background-image: url(<?= base_url('asset/images/LOGO_KABUPATEN_GARUT.png'); ?>);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  </style>
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page bg-login">
   <div class="login-box">
     <div class="login-logo">
       <a href="#"><b>ADMIN</b> Login</a>

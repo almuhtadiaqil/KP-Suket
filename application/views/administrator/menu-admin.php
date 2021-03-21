@@ -211,28 +211,37 @@
                 if ($cek == 1 or $this->session->level == 'admin') {
                   echo "<li><a href='" . base_url() . "administrator/manajemenuser'><i class='fa fa-circle-o'></i> Manajemen User</a></li>";
                 }
-
                 $cek = $this->model_app->umenu_akses("manajemenmodul", $this->session->id_session);
                 if ($cek == 1 or $this->session->level == 'admin') {
                   echo "<li><a href='" . base_url() . "administrator/manajemenmodul'><i class='fa fa-circle-o'></i> Manajemen Modul</a></li>";
                 }
                 ?>
+                <li><a href="<?= base_url('administrator/aktivasi_akun'); ?>"><i class="fa fa-user"></i> Aktivasi Akun</a></li>
               </ul>
             </li>
 
 
             <li class="treeview">
               <a href="#"><i class="fa fa-key"></i><span>Modul Layanan</span><i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview">
-                <a href="#"><i class="fa fa-circle-o"></i>Layanan</a>
-                <ul class="treeview-menu">
-                  <li><a href="<?php echo base_url('Surat/SK_usaha') ?>"><i class="fa fa-envelope-o"></i>SK Usaha</a></li>
-                  <li><a href="<?php echo base_url('Surat/SK_kelakuanbaik') ?>"><i class="fa fa-envelope-o"></i>SK Kelakuan Baik</a></li>
-                  <li><a href="<?php echo base_url('Surat/SK_bedanama') ?>"><i class="fa fa-envelope-o"></i>SK Beda Nama</a></li>
-                  <li><a href="<?php echo base_url('Surat/SK_belumkerja') ?>"><i class="fa fa-envelope-o"></i>SK Belum Bekerja</a></li>
-                  <li><a href="<?php echo base_url('Surat/SK_bmr') ?>"><i class="fa fa-envelope-o"></i>SK Belum Memiliki Rumah</a></li>
-                </ul>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="#"><i class="fa fa-circle-o"></i>Layanan</a>
+                  <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url('Surat/SK_usaha') ?>"><i class="fa fa-envelope-o"></i>SK Usaha</a></li>
+                    <li><a href="<?php echo base_url('Surat/SK_kelakuanbaik') ?>"><i class="fa fa-envelope-o"></i>SK Kelakuan Baik</a></li>
+                    <li><a href="<?php echo base_url('Surat/SK_bedanama') ?>"><i class="fa fa-envelope-o"></i>SK Beda Nama</a></li>
+                    <li><a href="<?php echo base_url('Surat/SK_belumkerja') ?>"><i class="fa fa-envelope-o"></i>SK Belum Bekerja</a></li>
+                    <li><a href="<?php echo base_url('Surat/SK_bmr') ?>"><i class="fa fa-envelope-o"></i>SK Belum Memiliki Rumah</a></li>
+                    <li><a href="<?php echo base_url('Surat/SK_belummenikah') ?>"><i class="fa fa-envelope-o"></i>SK Belum Menikah</a></li>
+                    <li><a href="<?php echo base_url('Surat/SK_bp') ?>"><i class="fa fa-envelope-o"></i>SK Biaya Penguburan</a></li>
+                    <li><a href="<?php echo base_url('Surat/SK_kehilangan') ?>"><i class="fa fa-envelope-o"></i>SK Kehilangan</a></li>
+                    <li><a href="<?php echo base_url('Surat/SK_penghasilan') ?>"><i class="fa fa-envelope-o"></i>SK Penghasilan</a></li>
+                    <li><a href="<?php echo base_url('Surat/SK_ptt') ?>"><i class="fa fa-envelope-o"></i>SK Pernikahan Tak Tercatat</a></li>
+                    <li><a href="<?php echo base_url('Surat/SK_rumahrubuh') ?>"><i class="fa fa-envelope-o"></i>SK Rumah Rubuh</a></li>
+                  </ul>
+                </li>
               </ul>
+            </li>
             </li>
 
           </ul>

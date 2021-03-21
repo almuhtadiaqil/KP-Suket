@@ -44,8 +44,8 @@ $this->load->helper('date');
 $this->load->library('pdf');
 $pdf = new FPDF('P', 'mm', 'A4');
 $pdf->AddPage();
-$pdf->SetTitle('Cetak - Surat Keterangan Kelakuan Baik');
-$pdf->SetSubject('Surat Keterangan Kelakuan Baik');
+$pdf->SetTitle('Cetak - Surat Keterangan Belum Bekerja');
+$pdf->SetSubject('Surat Keterangan Belum Bekerja');
 $pdf->SetMargins(15, 18, 15, 18);
 
 //Kop surat
@@ -54,7 +54,7 @@ $pdf->SetFont('Times', 'B', 14);
 $pdf->setY(10);
 $pdf->setX(40);
 $pdf->Cell(0, 6, 'PEMERINTAH KABUPATEN GARUT', 0, 1, 'C');
-$pdf->SetFont('Times', '', 14);
+$pdf->SetFont('Times', 'B', 14);
 $pdf->setY(15);
 $pdf->setX(40);
 $pdf->Cell(0, 6, 'KECAMATAN GARUT KOTA', 0, 1, 'C');
@@ -75,12 +75,12 @@ $pdf->AddFont('Calbold', '', 'calbold.php');
 $pdf->SetFont('Calbold', 'U', 14);
 $pdf->setY(40);
 $pdf->setX(22);
-$pdf->Cell(0, 6, 'SURAT KETERANGAN KELAKUAN BAIK', 0, 1, 'C');
+$pdf->Cell(0, 6, 'SURAT KETERANGAN BIAYA PENGUBURAN', 0, 1, 'C');
 $pdf->AddFont('Calreg', '', 'calreg.php');
 $pdf->SetFont('Calreg', '', 12);
 $pdf->setY(45);
 $pdf->setX(22);
-$pdf->Cell(0, 6, 'NOMOR  : 145/2428 - Kel/2020', 0, 1, 'C');
+$pdf->Cell(0, 6, 'NOMOR  : 145/1069 - Kel/2020', 0, 1, 'C');
 $pdf->SetFont('Calreg', '', 12);
 $pdf->setY(55);
 $pdf->setX(30);
@@ -92,7 +92,7 @@ $pdf->Cell('0', 6, 'Kabupaten Garut, menerangkan bahwa :', 0, 1, 'L');
 $pdf->ln(8);
 
 // // Isi Tabel
-foreach ($sk_kb as $surat) {
+foreach ($sk_bp as $surat) {
     $pdf->SetFont('Calreg', '', 12);
     $pdf->setY(73);
     $pdf->setX(30);
@@ -169,7 +169,7 @@ foreach ($sk_kb as $surat) {
     $pdf->setY(113);
     $pdf->setX(80);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, $surat->alamat . ' RT ' . $surat->RT . ' RW ' . $surat->RW, 0, 1, 'L');
+    $pdf->Cell(0, 6, $surat->alamat . ' RT ' . $surat->rt . ' RW ' . $surat->rw, 0, 1, 'L');
     $pdf->setY(121);
     $pdf->setX(80);
     $pdf->SetFont('Calreg', '', 12);
@@ -180,20 +180,30 @@ foreach ($sk_kb as $surat) {
     $pdf->setY(131);
     $pdf->setX(30);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'Adalah   benar   warga   kami   dan  berdasarkan  Keterangan   dari   Ketua RT/RW serta pertimbangan', 0, 1, 'L');
+    $pdf->Cell(0, 6, 'Adalah   benar   warga   kami   dan  berdasarkan  Keterangan   dari Ketua     RT/RW, serta pertimbangan kami', 0, 1, 'L');
     $pdf->setY(139);
     $pdf->setX(9);
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'kami bahwa yang bersangkutan benar Berkelakuan Baik', 0, 1, 'L');
+    $pdf->Cell(0, 6, 'bahwa yang bersangkutan benar telah meninggal dunia pada hari S', 0, 1, 'L');
     $pdf->setY(147);
     $pdf->setX(30);
-
     $pdf->SetFont('Calreg', '', 12);
-    $pdf->Cell(0, 6, 'Demikian keterangan ini kami berikan kepada yang berkepentingan untuk dipergunakan', 0, 0, 'L');
+    $pdf->Cell(0, 6, 'Surat Keterangan ini akan dipergunakan untuk memenuhi persyaratan', 0, 1, 'L');
+    $pdf->setY(147);
+    $pdf->setX(155);
+    $pdf->SetFont('Calreg', '', 12);
+    $pdf->Cell(0, 6, $surat->keperluan . '.', 0, 1, 'L');
+
     $pdf->setY(155);
+    $pdf->setX(30);
+    $pdf->SetFont('Calreg', '', 12);
+    $pdf->Cell(0, 6, 'Demikian keterangan ini kami berikan kepada yang berkepentingan untuk dipergunakan ', 0, 0, 'L');
+    $pdf->setY(163);
     $pdf->setX(9);
     $pdf->SetFont('Calreg', '', 12);
     $pdf->Cell(0, 6, 'sebagaimana mestinya.', 0, 1, 'L');
+
+
 
     //titimangsa
     $pdf->SetFont('Times', '', 12);

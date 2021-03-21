@@ -1,2 +1,1 @@
-
-<strong>Copyright &copy; 2016 - <?php echo date('Y'); ?> <a target='_BLANK' href="http://www.lokomedia.web.id"> Lokomedia.web.id</a>.</strong> All rights reserved. 
+<strong>Developed by - <?php echo date('Y'); ?> <a target='_BLANK' href=""> </a>.</strong> All rights reserved.

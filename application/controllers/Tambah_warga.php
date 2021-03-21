@@ -122,4 +122,166 @@ class Tambah_warga extends CI_Controller
         $this->M_surat_n1_n6->update_data($where, $data, 'sk_bmr');
         redirect('Surat/SK_bmr');
     }
+    public function update_sk_belummenikah_terima($id_surat_belummenikah)
+    {
+        $where = array(
+            'id_surat_belummenikah' => $id_surat_belummenikah
+        );
+        $data = array(
+            'status_surat' => "Diterima",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_belummenikah');
+        redirect('Surat/SK_belummenikah');
+    }
+    public function update_sk_belummenikah_tolak($id_surat_belummenikah)
+    {
+        $where = array(
+            'id_surat_belummenikah' => $id_surat_belummenikah
+        );
+        $data = array(
+            'status_surat' => "Ditolak",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_belummenikah');
+        redirect('Surat/SK_belummenikah');
+    }
+    public function update_sk_bp_terima($id_surat_bp)
+    {
+        $where = array(
+            'id_surat_bp' => $id_surat_bp
+        );
+        $data = array(
+            'status_surat' => "Diterima",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_bp');
+        redirect('Surat/SK_bp');
+    }
+    public function update_sk_bp_tolak($id_surat_bp)
+    {
+        $where = array(
+            'id_surat_bp' => $id_surat_bp
+        );
+        $data = array(
+            'status_surat' => "Ditolak",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_bp');
+        redirect('Surat/SK_bp');
+    }
+    public function update_sk_kehilangan_terima($id_surat_kehilangan)
+    {
+        $where = array(
+            'id_surat_kehilangan' => $id_surat_kehilangan
+        );
+        $data = array(
+            'status_surat' => "Diterima",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_kehilangan');
+        redirect('Surat/SK_kehilangan');
+    }
+    public function update_sk_kehilangan_tolak($id_surat_kehilangan)
+    {
+        $where = array(
+            'id_surat_kehilangan' => $id_surat_kehilangan
+        );
+        $data = array(
+            'status_surat' => "Ditolak",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_kehilangan');
+        redirect('Surat/SK_kehilangan');
+    }
+    public function update_sk_penghasilan_terima($id_surat_penghasilan)
+    {
+        $where = array(
+            'id_surat_penghasilan' => $id_surat_penghasilan
+        );
+        $data = array(
+            'status_surat' => "Diterima",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_penghasilan');
+        redirect('Surat/SK_penghasilan');
+    }
+    public function update_sk_penghasilan_tolak($id_surat_penghasilan)
+    {
+        $where = array(
+            'id_surat_penghasilan' => $id_surat_penghasilan
+        );
+        $data = array(
+            'status_surat' => "Ditolak",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_penghasilan');
+        redirect('Surat/SK_penghasilan');
+    }
+    public function update_sk_ptt_terima($id_surat_ptt)
+    {
+        $where = array(
+            'id_surat_ptt' => $id_surat_ptt
+        );
+        $data = array(
+            'status_surat' => "Diterima",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_ptt');
+        redirect('Surat/SK_ptt');
+    }
+    public function update_sk_ptt_tolak($id_surat_ptt)
+    {
+        $where = array(
+            'id_surat_ptt' => $id_surat_ptt
+        );
+        $data = array(
+            'status_surat' => "Ditolak",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_ptt');
+        redirect('Surat/SK_ptt');
+    }
+    public function update_sk_rumahrubuh_terima($id_surat_rumahrubuh)
+    {
+        $where = array(
+            'id_surat_rumahrubuh' => $id_surat_rumahrubuh
+        );
+        $data = array(
+            'status_surat' => "Diterima",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_rumahrubuh');
+        redirect('Surat/SK_rumahrubuh');
+    }
+    public function update_sk_rumahrubuh_tolak($id_surat_rumahrubuh)
+    {
+        $where = array(
+            'id_surat_rumahrubuh' => $id_surat_rumahrubuh
+        );
+        $data = array(
+            'status_surat' => "Ditolak",
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'sk_rumahrubuh');
+        redirect('Surat/SK_rumahrubuh');
+    }
+    public function aktivasi_akun($no_nik)
+    {
+        $where = array(
+            'no_nik' => $no_nik
+        );
+        $data = array(
+            'is_active' => 1,
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'user');
+        redirect('administrator/aktivasi_akun');
+    }
+    public function tolak_akun($no_nik)
+    {
+        $where = array(
+            'no_nik' => $no_nik
+        );
+        $data = array(
+            'is_active' => 0,
+        );
+        $this->M_surat_n1_n6->update_data($where, $data, 'user');
+        redirect('administrator/aktivasi_akun');
+    }
+    public function hapus_akun($no_nik)
+    {
+        $where = array(
+            'no_nik' => $no_nik
+        );
+        $this->M_surat_n1_n6->hapus_data($where, 'user');
+        redirect('administrator/aktivasi_akun');
+    }
 }
