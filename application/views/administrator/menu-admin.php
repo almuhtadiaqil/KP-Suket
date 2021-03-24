@@ -23,12 +23,14 @@
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-th-list"></i> <span>Menu Utama</span><i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
+                <li><a href="<?= base_url('administrator/headingwebsite'); ?>"><i class="fa fa-circle-o"></i> Header Website</a></li>
                 <?php
                 $cek = $this->model_app->umenu_akses("identitaswebsite", $this->session->id_session);
                 if ($cek == 1 or $this->session->level == 'admin') {
                   echo "<li><a href='" . base_url() . "administrator/identitaswebsite'><i class='fa fa-circle-o'></i> Identitas Website</a></li>";
-                }
-
+                } ?>
+                <li><a href="<?= base_url('administrator/socmed'); ?>"><i class="fa fa-circle-o"></i> Social Media</a></li>
+                <?php
                 $cek = $this->model_app->umenu_akses("menuwebsite", $this->session->id_session);
                 if ($cek == 1 or $this->session->level == 'admin') {
                   echo "<li><a href='" . base_url() . "administrator/menuwebsite'><i class='fa fa-circle-o'></i> Menu Website</a></li>";
@@ -175,20 +177,20 @@
                   echo "<li><a href='" . base_url() . "administrator/sekilasinfo'><i class='fa fa-circle-o'></i> Sekilas Info</a></li>";
                 }
 
-                $cek = $this->model_app->umenu_akses("jajakpendapat", $this->session->id_session);
-                if ($cek == 1 or $this->session->level == 'admin') {
-                  echo "<li><a href='" . base_url() . "administrator/jajakpendapat'><i class='fa fa-circle-o'></i> Jajak Pendapat</a></li>";
-                }
+                // $cek = $this->model_app->umenu_akses("jajakpendapat", $this->session->id_session);
+                // if ($cek == 1 or $this->session->level == 'admin') {
+                //   echo "<li><a href='" . base_url() . "administrator/jajakpendapat'><i class='fa fa-circle-o'></i> Jajak Pendapat</a></li>";
+                // }
 
                 // $cek=$this->model_app->umenu_akses("ym",$this->session->id_session);
                 // if($cek==1 OR $this->session->level=='admin'){
                 // echo "<li><a href='".base_url()."administrator/ym'><i class='fa fa-circle-o'></i> Yahoo Messanger</a></li>";
                 // }
 
-                $cek = $this->model_app->umenu_akses("download", $this->session->id_session);
-                if ($cek == 1 or $this->session->level == 'admin') {
-                  echo "<li><a href='" . base_url() . "administrator/download'><i class='fa fa-circle-o'></i> Download Area</a></li>";
-                }
+                // $cek = $this->model_app->umenu_akses("download", $this->session->id_session);
+                // if ($cek == 1 or $this->session->level == 'admin') {
+                //   echo "<li><a href='" . base_url() . "administrator/download'><i class='fa fa-circle-o'></i> Download Area</a></li>";
+                // }
 
                 $cek = $this->model_app->umenu_akses("alamat", $this->session->id_session);
                 if ($cek == 1 or $this->session->level == 'admin') {
@@ -225,7 +227,7 @@
               <a href="#"><i class="fa fa-key"></i><span>Modul Layanan</span><i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li>
-                  <a href="#"><i class="fa fa-circle-o"></i>Layanan</a>
+                  <a href="#"><i class="fa fa-circle-o"></i>Surat Keterangan</a>
                   <ul class="treeview-menu">
                     <li><a href="<?php echo base_url('Surat/SK_usaha') ?>"><i class="fa fa-envelope-o"></i>SK Usaha</a></li>
                     <li><a href="<?php echo base_url('Surat/SK_kelakuanbaik') ?>"><i class="fa fa-envelope-o"></i>SK Kelakuan Baik</a></li>

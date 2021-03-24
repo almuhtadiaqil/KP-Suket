@@ -10,8 +10,8 @@
                             echo "<img style='width:70px;' src='" . base_url() . "asset/logo/$row[gambar]'/>";
                         }
                         ?>
-                        <h4><b><span style=" color: #fff;">PEMERINTAHAN KELURAHAN MUARASANDING</span></b></h4>
-                        <h4><b><span style=" color: #fff;">KECAMATAN GARUT KOTA KABUPATEN GARUT</span></b></h4>
+                        <h4><b><span style=" color: #fff;text-transform: uppercase;">PEMERINTAHAN <?= $heading['desa_kelurahan']; ?> <?= $heading['nama_desa_kelurahan']; ?></span></b></h4>
+                        <h4><b><span style=" color: #fff;text-transform: uppercase;">KECAMATAN <?= $heading['kecamatan']; ?> <?= $heading['kabupaten_kota']; ?> <?= $heading['nama_kabupaten_kota']; ?></span></b></h4>
                     </div>
                 </div>
 

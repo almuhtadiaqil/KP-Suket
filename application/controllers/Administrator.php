@@ -2760,4 +2760,18 @@ class Administrator extends CI_Controller
         ];
         $this->template->load('administrator/template', 'administrator/mod_users/aktivasi', $data);
     }
+    function headingwebsite()
+    {
+        $data = [
+            'heading' => $this->M_surat_n1_n6->get('heading')->row_array(),
+        ];
+        $this->template->load('administrator/template', 'administrator/mod_heading/view_heading', $data);
+    }
+    function socmed()
+    {
+        $data = [
+            'socmed' => $this->M_surat_n1_n6->get('socmed')->row_array(),
+        ];
+        $this->template->load('administrator/template', 'administrator/mod_socmed/view_socmed', $data);
+    }
 }

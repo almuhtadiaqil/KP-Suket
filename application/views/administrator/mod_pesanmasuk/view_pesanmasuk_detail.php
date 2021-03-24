@@ -1,20 +1,20 @@
-<?php 
-    echo "<div class='col-md-12'>
+<?php
+echo "<div class='col-md-12'>
               <div class='box box-info'>
                 <div class='box-header with-border'>
                   <h3 class='box-title'>LIhat dan Balas Pesan Masuk</h3>
                 </div>
               <div class='box-body'>";
-              $attributes = array('class'=>'form-horizontal','role'=>'form');
-              echo form_open_multipart('administrator/detail_pesanmasuk/'.$rows['id_hubungi'],$attributes); 
-          echo "<div class='col-md-12'>";
-                    if (isset($_POST['submit'])){
-                       echo "<div class='alert alert-success alert-dismissible fade in' role='alert'> 
+$attributes = array('class' => 'form-horizontal', 'role' => 'form');
+echo form_open_multipart('administrator/detail_pesanmasuk/' . $rows['id_hubungi'], $attributes);
+echo "<div class='col-md-12'>";
+if (isset($_POST['submit'])) {
+  echo "<div class='alert alert-success alert-dismissible fade in' role='alert'> 
                                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                                 <span aria-hidden='true'>×</span></button> <strong>Success!</strong> - Email success Terkirim ke $_POST[b].
                               </div>";
-                    }
-                  echo "<table class='table table-condensed table-bordered'>
+}
+echo "<table class='table table-condensed table-bordered'>
                   <tbody>
 
                     <tr><th width='120px' scope='row'>Nama Pengirim</th>  <td><input type='text' class='form-control' name='a' value='$rows[nama]' readonly='on'></td></tr>
@@ -29,8 +29,8 @@
               
               <div class='box-footer'>
                     <button type='submit' name='submit' class='btn btn-info'>Kirimkan Balasan</button>
-                    <a href='index.php'><button type='button' class='btn btn-default pull-right'>Cancel</button></a>
+                    <a href='" . base_url('administrator/pesanmasuk') . "'><button type='button' class='btn btn-default pull-right'>Cancel</button></a>
                     
                   </div>
             </div></div></div>";
-            echo form_close();
+echo form_close();
