@@ -30,6 +30,8 @@ class Hubungi extends CI_Controller
 		// $this->session->set_userdata('mycaptcha', $cap['word']);
 		$this->load->model('M_surat_n1_n6');
 		$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+		$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
+
 		$this->template->load(template() . '/template', template() . '/hubungi', $data);
 	}
 

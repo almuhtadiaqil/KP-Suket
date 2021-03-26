@@ -24,6 +24,8 @@ class Tag extends CI_Controller
 			$data['rows'] = $row;
 			$this->load->model('M_surat_n1_n6');
 			$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+			$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
+
 			if (is_numeric($dari)) {
 				$data['beritatag'] = $this->db->query("SELECT berita.*, users.nama_lengkap, kategori.nama_kategori, kategori.kategori_seo FROM berita 
 															left join users on berita.username=users.username

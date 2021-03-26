@@ -18,6 +18,8 @@ class Playlist extends CI_Controller
 		$data['keywords'] = keywords();
 		$this->load->model('M_surat_n1_n6');
 		$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+		$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
+
 		if (is_numeric($dari)) {
 			$data['playlist'] = $this->model_utama->view_where_ordering_limit('playlist', array('aktif' => 'Y'), 'id_playlist', 'DESC', $dari, $config['per_page']);
 		} else {

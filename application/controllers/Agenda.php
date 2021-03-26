@@ -17,6 +17,7 @@ class Agenda extends CI_Controller
 		$data['description'] = description();
 		$this->load->model('M_surat_n1_n6');
 		$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+		$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
 		$data['keywords'] = keywords();
 		if (is_numeric($dari)) {
 			$data['agenda'] = $this->model_utama->view_join('agenda', 'users', 'username', 'id_agenda', 'DESC', $dari, $config['per_page']);
@@ -40,6 +41,7 @@ class Agenda extends CI_Controller
 			$data['rows'] = $row;
 			$this->load->model('M_surat_n1_n6');
 			$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+			$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
 
 			$dataa = array('dibaca' => $row['dibaca'] + 1);
 			$where = array('id_agenda' => $row['id_agenda']);

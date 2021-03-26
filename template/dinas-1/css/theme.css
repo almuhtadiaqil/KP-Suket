@@ -1607,6 +1607,7 @@ html.side-header #header {
 	min-height: 0 !important;
 }
 
+
 @media (min-width: 992px) {
 	html.side-header .main .container, html.side-header #footer .container {
 		padding: 0 35px;

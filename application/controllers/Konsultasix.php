@@ -17,6 +17,8 @@ class Konsultasi extends CI_Controller
 		$data['description'] = description();
 		$this->load->model('M_surat_n1_n6');
 		$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+		$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
+
 		$data['keywords'] = keywords();
 		if (is_numeric($dari)) {
 			$data['konsultasi'] = $this->model_utama->view_where_ordering_limit('tbl_comment', array('reply' => 0), 'id_komentar', 'DESC', $dari, $config['per_page']);

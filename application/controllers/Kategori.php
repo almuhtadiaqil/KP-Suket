@@ -24,6 +24,8 @@ class Kategori extends CI_Controller
 			$data['rows'] = $row;
 			$this->load->model('M_surat_n1_n6');
 			$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+			$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
+
 			if (is_numeric($dari)) {
 				$data['beritakategori'] = $this->model_utama->view_join_two('berita', 'users', 'kategori', 'username', 'id_kategori', array('berita.status' => 'Y', 'berita.id_kategori' => $row['id_kategori']), 'id_berita', 'DESC', $dari, $config['per_page']);
 			} else {

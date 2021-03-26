@@ -15,6 +15,7 @@ class Halaman extends CI_Controller
 			$data['rows'] = $row;
 			$this->load->model('M_surat_n1_n6');
 			$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+			$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
 			$dataa = array('dibaca' => $row['dibaca'] + 1);
 			$where = array('id_halaman' => $row['id_halaman']);
 			$this->model_utama->update('halamanstatis', $dataa, $where);

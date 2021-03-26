@@ -24,16 +24,16 @@
                 ?>
              <ul class="social-icons mt-xl">
                  <li>
-                     <a class="sc-1" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                     <a class="sc-1" href="<?= $socmed['facebook']; ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+                 </li>
+                 <!-- <li>
+                     <a class="sc-2" href="" target="_blank"><i class="fa fa-twitter"></i></a>
+                 </li> -->
+                 <li>
+                     <a class="sc-11" href="<?= $socmed['instagram']; ?>" target="_blank"><i class="fa fa-instagram"></i></a>
                  </li>
                  <li>
-                     <a class="sc-2" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                 </li>
-                 <li>
-                     <a class="sc-11" href="#" target="_blank"><i class="fa fa-instagram"></i></a>
-                 </li>
-                 <li>
-                     <a class="sc-3" href="#" target="_blank"><i class="fa fa-youtube"></i></a>
+                     <a class="sc-3" href="<?= $socmed['youtube']; ?>" target="_blank"><i class="fa fa-youtube"></i></a>
                  </li>
              </ul>
 
@@ -44,7 +44,7 @@
      <div class="container">
          <div class="row">
              <div class="col-md-11">
-                 <p>© <?php echo Date('Y'); ?> Powered by Lokomedia</p>
+                 <p> <?php echo Date('Y'); ?> Powered by</p>
              </div>
          </div>
      </div>

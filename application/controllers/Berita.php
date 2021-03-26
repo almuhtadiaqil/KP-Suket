@@ -21,6 +21,8 @@ class Berita extends CI_Controller
 				$data['keywords'] = keywords();
 				$this->load->model('M_surat_n1_n6');
 				$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+				$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
+
 				$data['berita'] = $this->model_utama->cari_berita($this->db->escape_str($this->input->post('kata')));
 				$this->pagination->initialize($config);
 			} else {
@@ -29,6 +31,8 @@ class Berita extends CI_Controller
 				$data['keywords'] = keywords();
 				$this->load->model('M_surat_n1_n6');
 				$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+				$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
+
 				$data['berita'] = $this->model_utama->view_joinn('berita', 'users', 'kategori', 'username', 'id_kategori', 'id_berita', 'DESC', $dari, $config['per_page']);
 				$this->pagination->initialize($config);
 			}
@@ -97,6 +101,7 @@ class Berita extends CI_Controller
 		$data['keywords'] = keywords();
 		$this->load->model('M_surat_n1_n6');
 		$data['heading'] = $this->M_surat_n1_n6->get('heading')->row_array();
+		$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
 		$data['record'] = $this->model_utama->view('kategori');
 		if (isset($_POST['filter'])) {
 			$bulan = strlen($_POST['bulan']);

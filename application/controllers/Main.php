@@ -13,6 +13,7 @@ class Main extends CI_Controller
 		$data['description'] = description();
 		$data['keywords'] = keywords();
 
+		$data['socmed'] = $this->M_surat_n1_n6->get('socmed')->row_array();
 		$data['agenda'] = $this->model_utama->view_join('agenda', 'users', 'username', 'id_agenda', 'DESC', 0, 4);
 		$data['pengumuman'] = $this->model_utama->view_where_ordering_limit('sekilasinfo', "aktif='Y'", 'id_sekilas', 'DESC', 0, 3);
 		$data['video1'] = $this->model_utama->view_ordering_limit('video', 'id_video', 'DESC', 0, 1);
